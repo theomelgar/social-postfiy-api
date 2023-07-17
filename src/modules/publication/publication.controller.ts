@@ -12,8 +12,8 @@ import {
 import { PublicationService } from './publication.service';
 import { CreatePublicationDto } from './dto/create-publication.dto';
 import { UpdatePublicationDto } from './dto/update-publication.dto';
-import { AuthGuard } from 'src/auth/authGuard/auth.guard';
-import { UserRequest } from 'src/auth/decorators/user.decorator';
+import { AuthGuard } from 'src/modules/auth/authGuard/auth.guard';
+import { UserRequest } from 'src/modules/auth/decorators/user.decorator';
 import { User } from '@prisma/client';
 
 @Controller('publication')

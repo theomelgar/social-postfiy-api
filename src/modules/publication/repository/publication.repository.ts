@@ -6,4 +6,5 @@ export abstract class PublicationRepository {
   ): Promise<Publication>;
   abstract findByTitle(title: string): Promise<Publication>;
   abstract findByUserId(userId: number): Promise<Publication[]>;
+  abstract togglePublish(publicationId: number, status: boolean): Promise<Publication>;
 }

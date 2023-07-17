@@ -5,10 +5,10 @@ import {
 } from '@nestjs/common';
 import { AuthSigninDTO } from './dto/auth-signin.dto';
 import { AuthSignupDTO } from './dto/auth-signup.dto';
-import { UsersService } from 'src/users/users.service';
+import { UsersService } from 'src/modules/users/users.service';
 import { JwtService } from '@nestjs/jwt';
 import * as bcrypt from 'bcrypt';
-import { UsersRepository } from 'src/users/repository/user.repository';
+import { UsersRepository } from 'src/modules/users/repository/user.repository';
 import { User } from '@prisma/client';
 
 @Injectable()

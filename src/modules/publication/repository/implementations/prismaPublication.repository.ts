@@ -1,8 +1,7 @@
-import { Injectable } from "@nestjs/common";
-import { PublicationRepository } from "../publication.repository";
-import { PrismaService } from "src/prisma/prisma.service";
-import { Prisma } from "@prisma/client";
-
+import { Injectable } from '@nestjs/common';
+import { PublicationRepository } from '../publication.repository';
+import { PrismaService } from 'src/prisma/prisma.service';
+import { Prisma } from '@prisma/client';
 
 @Injectable()
 export class PrismaPublicationRepository implements PublicationRepository {
@@ -18,5 +17,12 @@ export class PrismaPublicationRepository implements PublicationRepository {
 
   async findByUserId(userId: number) {
     return await this.prisma.publication.findMany({ where: { userId } });
+  }
+
+  async togglePublish(publicationId: number, status: boolean) {
+    return await this.prisma.publication.update({
+      where: { id: publicationId },
+      data: { published: status },
+    });
   }
 }

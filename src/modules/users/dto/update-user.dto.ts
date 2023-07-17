@@ -2,7 +2,7 @@ import {
   IsEmail,
   IsOptional,
   IsString,
-  IsStrongPassword,
+  Length,
 } from 'class-validator';
 
 export class UpdateUserDTO {
@@ -16,13 +16,7 @@ export class UpdateUserDTO {
   email: string;
 
   @IsString()
-  @IsStrongPassword({
-    minLength: 6,
-    minLowercase: 2,
-    minSymbols: 1,
-    minUppercase: 1,
-    minNumbers: 3,
-  })
+  @Length(6,20, { message: 'Password must be between 6 and 20 characters' })
   @IsOptional()
   password: string;
 

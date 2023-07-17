@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
-import { UsersModule } from './users/users.module';
+import { UsersModule } from './modules/users/users.module';
 import { PrismaModule } from './prisma/prisma.module';
-import { AuthModule } from './auth/auth.module';
-import { PublicationModule } from './publication/publication.module';
+import { AuthModule } from './modules/auth/auth.module';
+import { PublicationModule } from './modules/publication/publication.module';
 
 @Module({
   imports: [UsersModule, PrismaModule, AuthModule, PublicationModule],

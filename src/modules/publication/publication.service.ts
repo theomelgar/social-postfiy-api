@@ -23,7 +23,6 @@ export class PublicationService {
     return await this.publicationRepository.findByUserId(userId)
   }
 
-
   update(id: number, updatePublicationDto: UpdatePublicationDto) {
     return `This action updates a #${id} publication`;
   }
