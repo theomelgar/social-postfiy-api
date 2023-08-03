@@ -26,8 +26,8 @@ export class PublicationController {
     @Body() createPublicationDto: CreatePublicationDto,
     @UserRequest() user: User,
   ) {
-    const {id} = user;
-    return this.publicationService.create(id,createPublicationDto);
+    const { id } = user;
+    return this.publicationService.create(id, createPublicationDto);
   }
 
   @Get()
@@ -42,7 +42,11 @@ export class PublicationController {
     @Param('id') id: string,
     @Body() updatePublicationDto: UpdatePublicationDto,
   ) {
-    return this.publicationService.update(+id, updatePublicationDto);
+    const postId = Number(id);
+    return this.publicationService.update(
+      postId,
+      updatePublicationDto.published,
+    );
   }
 
   @Delete(':id')

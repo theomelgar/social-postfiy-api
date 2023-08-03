@@ -52,7 +52,7 @@ export class AuthService {
       },
     );
 
-    return { token };
+    return { name: user.name, avatar: user.avatar, token };
   }
 
   checkToken(token: string) {

@@ -11,14 +11,17 @@ export class UpdatePublicationDto {
   @IsString()
   image: string;
 
+  @IsOptional()
   @IsNotEmpty()
   @IsString()
   title: string;
 
+  @IsOptional()
   @IsNotEmpty()
   @IsString()
   text: string;
 
+  @IsOptional()
   @IsNotEmpty()
   @IsString()
   @IsDateString()
@@ -28,6 +31,7 @@ export class UpdatePublicationDto {
   @IsOptional()
   published: boolean;
 
+  @IsOptional()
   @IsNotEmpty()
   @IsString()
   socialMedia: string;

@@ -5,26 +5,32 @@ import { PublicationRepository } from './repository/publication.repository';
 
 @Injectable()
 export class PublicationService {
-  constructor (private readonly publicationRepository: PublicationRepository){}
+  constructor(private readonly publicationRepository: PublicationRepository) {}
 
-  async create(userId:number, createPublicationDto: CreatePublicationDto) {
-    const publication = await this.publicationRepository.findByTitle(createPublicationDto.title);
+  async create(userId: number, createPublicationDto: CreatePublicationDto) {
+    const publication = await this.publicationRepository.findByTitle(
+      createPublicationDto.title,
+    );
 
     if (publication) {
-      throw new HttpException('Publication already exists', HttpStatus.BAD_REQUEST);
+      throw new HttpException(
+        'Publication already exists',
+        HttpStatus.BAD_REQUEST,
+      );
     }
 
     await this.publicationRepository.create({
       ...createPublicationDto,
       userId,
-    });  }
-
-  async findByUserId(userId:number) {
-    return await this.publicationRepository.findByUserId(userId)
+    });
   }
 
-  update(id: number, updatePublicationDto: UpdatePublicationDto) {
-    return `This action updates a #${id} publication`;
+  async findByUserId(userId: number) {
+    return await this.publicationRepository.findByUserId(userId);
+  }
+
+  async update(id: number, status: boolean) {
+    return await this.publicationRepository.togglePublish(id, status);
   }
 
   remove(id: number) {
