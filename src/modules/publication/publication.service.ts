@@ -33,7 +33,7 @@ export class PublicationService {
     return await this.publicationRepository.togglePublish(id, status);
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} publication`;
+  async remove(id: number) {
+    return await this.publicationRepository.deleteByPostId(id);
   }
 }

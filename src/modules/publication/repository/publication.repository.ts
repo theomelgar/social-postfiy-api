@@ -10,4 +10,5 @@ export abstract class PublicationRepository {
     publicationId: number,
     status: boolean,
   ): Promise<Publication>;
+  abstract deleteByPostId(publicationId: number): Promise<void>;
 }

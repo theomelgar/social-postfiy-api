@@ -25,4 +25,9 @@ export class PrismaPublicationRepository implements PublicationRepository {
       data: { published: status },
     });
   }
+  async deleteByPostId(publicationId: number): Promise<void> {
+    await this.prisma.publication.delete({
+      where: { id: publicationId },
+    });
+  }
 }
